@@ -35,9 +35,11 @@ const cart = [
 
 //CODE HERE
 
-const summedPrice = cart.reduce(sum, cb) => {
+const summedPrice = cart.reduce((acc, ord)=>{
+return acc + ord.price
+}, 0)
 
-}
+console.log(summedPrice)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -57,9 +59,10 @@ const summedPrice = cart.reduce(sum, cb) => {
 
 //CODE HERE
 
-const calcFinalPrice = () => {
-    
+const calcFinalPrice = (cartTotal,  couponValue, tax) => {
+    return (cartTotal + (1 + tax)) - couponValue
 }
+
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -82,7 +85,14 @@ const calcFinalPrice = () => {
 */
 
 /*
-    TEXT ANSWER HERE
+    Name str
+    Address str
+    Phone Num str
+    Notes str
+    Alleriges Array
+    hasCC boolean
+    regCus boolean
+    discount Array
 
 */
 
@@ -91,4 +101,14 @@ const calcFinalPrice = () => {
     guidelines.
 */
 
-//CODE HERE
+const customer = {
+    name: "Jose Molina",
+    address: "somewhere",
+    phone: "00000",
+    notes: "super cool",
+    allergies: ["None"],
+    hasCreditCard: true,
+    regCus: true,
+    discount: ["military", "senior"]
+}
+

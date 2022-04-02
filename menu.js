@@ -31,14 +31,13 @@
 */
 
 //CODE HERE
-let pizza = {
+const pizza = {
     name: "Pepperoni", 
     price: 5.99,
     category: "entree",
     popularity: 5,
     rating: 5,
-    tags: "normal"
-
+    tags: ["meat", "good", "yummy", "classic", "cheese"]
 }
 
 
@@ -51,8 +50,7 @@ let pizza = {
 */
 
 //CODE HERE
-let pizzaPopu = pizza.popularity
-// console.log(pizzaPopu)
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -62,8 +60,8 @@ let pizzaPopu = pizza.popularity
 */
 
 //CODE HERE
-const tags1 = 'tags';
-const console.log(pizza[tags1])
+
+console.log(pizza.tag[1])
 
 /*
     Third, destructure the price off of the
@@ -73,8 +71,8 @@ const console.log(pizza[tags1])
 */
 //CODE HERE
 
-let {price} = pizza;
-console.log(`new price ${price}`);
+const {price} = pizza;
+// console.log(`new price ${price}`);
 
 /*
     Fourth, and last, destructure the category
@@ -84,7 +82,8 @@ console.log(`new price ${price}`);
 */
 
 //CODE HERE
-let {popularity, tags} = pizza;
+const {category} = pizza
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -106,7 +105,7 @@ let foodArr = [
     category: "entree",
     popularity: 5,
     rating: 5,
-    tags: "normal"  
+    tags: [ "normal", "kids" ]
     },
     {
         name: "hawaiian", 
@@ -114,7 +113,7 @@ let foodArr = [
         category: "entree",
         popularity: 4,
         rating: 5,
-        tags: "sweet"
+        tags: ["sweet", "controversial", "meaty"]
     },
     {
         name: "meatlovers", 
@@ -122,7 +121,7 @@ let foodArr = [
         category: "entree",
         popularity: 5,
         rating: 5,
-        tags: "meaty"
+        tags: ["meaty", "cheese"]
     },
     {
         name: "supreme", 
@@ -130,7 +129,7 @@ let foodArr = [
         category: "entree",
         popularity: 3,
         rating: 4,
-        tags: "Deluxe"
+        tags: ["Deluxe", "mushrooms"]
     },
     {
         name: "cheese", 
@@ -138,7 +137,7 @@ let foodArr = [
         category: "entree",
         popularity: 5,
         rating: 5,
-        tags: "kids"
+        tags: ["kids", "bread"]
     }
 ]
 
@@ -157,11 +156,9 @@ let foodArr = [
 
 //CODE HERE
 
-const filteredFood = foodArr.filter(tag, cb) => {
-    if(foodArr.includes(tags.kids)){
-        return 
-    }
-}
+const filteredFood = foodArr.filter(pizzaObj => {
+   return pizzaObj.tags.includes('meaty')
+})
 
 
 
@@ -205,6 +202,18 @@ const filteredFood = foodArr.filter(tag, cb) => {
 */
 
 //CODE HERE
+const filterByProperty = (property, num, type) => {
+    const filterArr = foodArr.filter(pizza => {
+        if(type === "above"){
+            return pizza[property] > num 
+        } else if (type === "below"){
+                return pizza[property] < num
+        } else {
+            return "you did not pass a valid type"
+        }
+    })
+    return filterArr
+}
 
 
 /*
@@ -215,3 +224,5 @@ const filteredFood = foodArr.filter(tag, cb) => {
 */
 
 //CODE HERE
+
+console.log(filterByProperty("price", 6, 'above'))

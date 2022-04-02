@@ -22,16 +22,11 @@
 */
 
 //CODE HERE
-const greetUser =  (username) => {
+const greetUser =  username => {
     return `Welcome back,${username}`;  
 }
-
-// function greetUser(username){
-//     return "Welcome back"
-// }
-
-const name = greetUser("honda");
-// console.log(name)
+// const name = greetUser("honda");
+console.log(greetUser('Honda'))
 
 
 
@@ -58,24 +53,16 @@ const name = greetUser("honda");
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-// const canWeDeliver = (zipCode) => {
-//     for( let i = 0; i < deliveryAreaZipCodes.length; i++){
-//         if(){
-//             return "Great"
-//         } else {
-//             return "Nope"
-//         }
-//     }
-    // if( zipCode.includes(deliveryAreaZipCodes)){
-    //     return "Great, what would you like?"
-    // } else {
-    //     return "We can't" 
 
-    //     }
-// }
+const canWeDeliver = zipCode => {
+    if(deliveryAreaZipCodes.includes(zipCode)){
+        return `You're in our delivery zone!`
+    } else {
+        return `Sorry, ${zipCode} is out of service`
+    }
+}
 
-// const delivery = canWeDeliver(85206)
-// console.log(delivery);
+
 /* 
     Problem 2 Continued
 
@@ -94,14 +81,46 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 */
 
 // CODE HERE
+// other code 
+// const canWeDeliver = zipCode => {
+//     for( let i = 0; i < deliveryAreaZipCodes.length; i++){
+//         if(){
+//             return "Great"
+//         } else {
+//             return "Nope"
+//         }
+//     }
 
-const canWeDeliverTwo = (zipCode) => {
+const canWeDeliverTwo = zipCode => {
     for( let i = 0; i < deliveryAreaZipCodes.length; i++){
-       zipCode.includes(deliveryAreaZipCodes[i]);
+     if(zipCode === deliveryAreaZipCodes[i]){
+         return "Great, what would you like?"
+     }
     }
+    return "Sorry bud"
+}
 
-    const delivery = canWeDeliver(85206)
-    console.log(delivery);
+///Answer 
+// const canWeDeliverThree = zipCode => {
+//     for( let i = 0; i < deliveryAreaZipCodes.length; i++){
+//         if(zipcode === deliveryAreaZipCodes[i]){
+//             return "You're in"
+//         }
+//     }
+//     /* forEach
+//     let canDeliver = false
+//     // deliveryAreaZipCodes.forEach(zip => {
+//         if(zip === zipCode){
+//             canDeliver = true
+//         }
+//     })
+//     if(canDeliver){
+//         return "youre in rang"
+//     } else {
+//         return "sorry" 
+//     } */
+//     return "sorry"
+// }
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -137,8 +156,8 @@ const deals = [
 */
 
 //CODE HERE
-
-
+deals[0].title = deals[0].title.replace('15', '10')
+//console.log(titles)
 
 /*
     The restaurant is going to continue its
@@ -154,3 +173,5 @@ const deals = [
 */
 
 //CODE HERE
+
+deals[1].desc = deals[1].title.replace('March', 'April').trim()
